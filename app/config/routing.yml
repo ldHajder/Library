@@ -1,0 +1,8 @@
+library_user:
+    resource: "@LibraryUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+library_main:
+    resource: "@LibraryMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
