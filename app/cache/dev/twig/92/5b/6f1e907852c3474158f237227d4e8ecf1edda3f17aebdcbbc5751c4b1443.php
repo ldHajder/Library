@@ -1,13 +1,13 @@
 <?php
 
 /* FOSUserBundle:Registration:confirmed.html.twig */
-class __TwigTemplate_871912bf8ee156b9341c6755a68c928350467a846197cee2f82d94ebf48e1efb extends Twig_Template
+class __TwigTemplate_925b6f1e907852c3474158f237227d4e8ecf1edda3f17aebdcbbc5751c4b1443 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("FOSUserBundle::layout.html.twig");
+        $this->parent = $this->env->loadTemplate("LibraryUserBundle::layout.html.twig");
 
         $this->blocks = array(
             'fos_user_content' => array($this, 'block_fos_user_content'),
@@ -16,7 +16,7 @@ class __TwigTemplate_871912bf8ee156b9341c6755a68c928350467a846197cee2f82d94ebf48
 
     protected function doGetParent(array $context)
     {
-        return "FOSUserBundle::layout.html.twig";
+        return "LibraryUserBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -40,13 +40,23 @@ class __TwigTemplate_871912bf8ee156b9341c6755a68c928350467a846197cee2f82d94ebf48
             // line 7
             echo "        ";
             if ((!twig_test_empty((isset($context["targetUrl"]) ? $context["targetUrl"] : $this->getContext($context, "targetUrl"))))) {
-                echo "<p><a href=\"";
+                // line 8
+                echo "            <p><a href=\"";
                 echo twig_escape_filter($this->env, (isset($context["targetUrl"]) ? $context["targetUrl"] : $this->getContext($context, "targetUrl")), "html", null, true);
                 echo "\">";
                 echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("registration.back", array(), "FOSUserBundle"), "html", null, true);
-                echo "</a></p>";
+                echo "</a></p>
+        ";
+            } else {
+                // line 10
+                echo "            <p>Zostales zalogowany.</p>
+            <p><a href=\"";
+                // line 11
+                echo $this->env->getExtension('routing')->getPath("homepage");
+                echo "\"> Wroc do strony glownej </a></p>
+        ";
             }
-            // line 8
+            // line 13
             echo "    ";
         }
     }
@@ -63,6 +73,6 @@ class __TwigTemplate_871912bf8ee156b9341c6755a68c928350467a846197cee2f82d94ebf48
 
     public function getDebugInfo()
     {
-        return array (  50 => 8,  41 => 7,  38 => 6,  36 => 5,  31 => 4,  28 => 3,);
+        return array (  60 => 13,  55 => 11,  52 => 10,  44 => 8,  41 => 7,  38 => 6,  36 => 5,  31 => 4,  28 => 3,);
     }
 }

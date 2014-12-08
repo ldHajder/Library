@@ -10,6 +10,9 @@ Library\MainBundle\Entity\LibraryCard:
     fields:
         date:
             type: datetime
+        returnDate:
+            type: datetime
+            nullable: TRUE
     lifecycleCallbacks:
         prePersist: [ setCurrentDate ]
     manyToOne:
@@ -21,6 +24,7 @@ Library\MainBundle\Entity\LibraryCard:
                 referencedColumName: id
         book:
             targetEntity: Library\MainBundle\Entity\Book
+            inversedBy: libraryCards
             joinColumn:
                 name: book_id
                 referencedColumName: id

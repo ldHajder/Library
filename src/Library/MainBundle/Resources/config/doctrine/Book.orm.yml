@@ -33,7 +33,10 @@ Library\MainBundle\Entity\Book:
     manyToOne:
         category:
             targetEntity: Library\MainBundle\Entity\Category
-            inversedBy: books
             joinColumn:
                 name: category_id
                 referencedColumName: id
+    oneToMany:
+        libraryCards:
+            targetEntity: Library\MainBundle\Entity\LibraryCard
+            mappedBy: book

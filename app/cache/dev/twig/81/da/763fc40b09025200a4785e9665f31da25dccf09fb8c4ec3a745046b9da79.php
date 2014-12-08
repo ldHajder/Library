@@ -28,7 +28,7 @@ class __TwigTemplate_81da763fc40b09025200a4785e9665f31da25dccf09fb8c4ec3a745046b
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    <p>Niestety nie znaleziono odpowiadajacych przepisow</p>
+        echo "    <p>Niestety nie znaleziono odpowiadajacych ksiazek.</p>
 ";
     }
 

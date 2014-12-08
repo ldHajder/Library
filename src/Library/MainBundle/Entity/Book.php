@@ -2,6 +2,8 @@
 
 namespace Library\MainBundle\Entity;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Context\LegacyExecutionContext;
 
 /**
  * Book
@@ -52,7 +54,7 @@ class Book
     
     /**
      *
-     * @var file
+     * @var UploadedFile
      */
     private $file;
     
@@ -61,7 +63,20 @@ class Book
      * @var Category
      */
     protected $category;
-
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $libraryCards;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->libraryCards = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -259,6 +274,39 @@ class Book
         return $this->category;
     }
     
+    /**
+     * Add libraryCards
+     *
+     * @param \Library\MainBundle\Entity\LibraryCard $libraryCards
+     * @return Book
+     */
+    public function addLibraryCard(\Library\MainBundle\Entity\LibraryCard $libraryCards)
+    {
+        $this->libraryCards[] = $libraryCards;
+
+        return $this;
+    }
+
+    /**
+     * Remove libraryCards
+     *
+     * @param \Library\MainBundle\Entity\LibraryCard $libraryCards
+     */
+    public function removeLibraryCard(\Library\MainBundle\Entity\LibraryCard $libraryCards)
+    {
+        $this->libraryCards->removeElement($libraryCards);
+    }
+
+    /**
+     * Get libraryCards
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLibraryCards()
+    {
+        return $this->libraryCards;
+    }
+    
     public function getWebPath()
     {
         return null === $this->path
@@ -311,6 +359,31 @@ class Book
         $file = $this->getAbsolutePath();
         if ($file) {
             unlink($file);
+        }
+    }
+    
+    private function getAbsolutePath()
+    {
+        return null === $this->path
+            ? null
+            : __DIR__.'/../../../../web/'.$this->getUploadRootDir().'/'.$this->path;
+    }
+
+    
+    /**
+     * Validates if file is correctly set
+     * @param Symfony\Component\Validator\Context\LegacyExecutionContext  $context
+     * @return type
+     */
+    public function validateFile(LegacyExecutionContext $context)
+    {
+        if (null !== $this->getId()) {
+            return;
+        }
+ 
+        if (null === $this->getFile()) {
+            $notBlank = new NotBlank();
+            $context->addViolationAt('file', $notBlank->message);
         }
     }
 }

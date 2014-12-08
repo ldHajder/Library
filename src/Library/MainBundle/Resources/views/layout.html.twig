@@ -21,27 +21,7 @@
                         <a href="{{ path('show_books') }}">Lista ksiazek</a>
                     </li>
                     <li>
-                        <a href="#">Wyszukaj</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
+                        <a href="{{ path('find_books') }}">Wyszukaj</a>
                     </li>
                     {% if app.user is not empty %}
                         <li class="dropdown">
@@ -51,18 +31,12 @@
                                     <a href="{{ path('fos_user_profile_edit') }}">Konto</a>
                                 </li>
                                 <li>
-                                    <a href="sidebar.html">Twoje przepisy</a>
-                                </li>
-                                <li>
-                                    <a href="404.html">Pomoc</a>
+                                    <a href="{{ path('show_library_card') }}">Wypozyczone ksiazki</a>
                                 </li>
                                 <li>
                                     <a href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#">Dodaj przepis</a>
                         </li>
                     {% else %}
                         <li>
@@ -121,4 +95,12 @@
     <div id ="myBody">
         {% block content %}{% endblock %}
     </div>
+    
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright © Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
 {% endblock %}

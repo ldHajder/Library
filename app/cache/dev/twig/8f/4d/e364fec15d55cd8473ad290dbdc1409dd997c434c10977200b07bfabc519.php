@@ -55,76 +55,56 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
         echo "\">Lista ksiazek</a>
                     </li>
                     <li>
-                        <a href=\"#\">Wyszukaj</a>
-                    </li>
-                    <li class=\"dropdown\">
-                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Portfolio <b class=\"caret\"></b></a>
-                        <ul class=\"dropdown-menu\">
-                            <li>
-                                <a href=\"portfolio-1-col.html\">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href=\"portfolio-2-col.html\">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href=\"portfolio-3-col.html\">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href=\"portfolio-4-col.html\">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href=\"portfolio-item.html\">Single Portfolio Item</a>
-                            </li>
-                        </ul>
+                        <a href=\"";
+        // line 24
+        echo $this->env->getExtension('routing')->getPath("find_books");
+        echo "\">Wyszukaj</a>
                     </li>
                     ";
-        // line 46
+        // line 26
         if ((!twig_test_empty($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array())))) {
-            // line 47
+            // line 27
             echo "                        <li class=\"dropdown\">
                             <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Ustawienia <b class=\"caret\"></b></a>
                             <ul class=\"dropdown-menu\">
                                 <li>
                                     <a href=\"";
-            // line 51
+            // line 31
             echo $this->env->getExtension('routing')->getPath("fos_user_profile_edit");
             echo "\">Konto</a>
                                 </li>
                                 <li>
-                                    <a href=\"sidebar.html\">Twoje przepisy</a>
-                                </li>
-                                <li>
-                                    <a href=\"404.html\">Pomoc</a>
+                                    <a href=\"";
+            // line 34
+            echo $this->env->getExtension('routing')->getPath("show_library_card");
+            echo "\">Wypozyczone ksiazki</a>
                                 </li>
                                 <li>
                                     <a href=\"";
-            // line 60
+            // line 37
             echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
             echo "\">Wyloguj</a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href=\"#\">Dodaj przepis</a>
-                        </li>
                     ";
         } else {
-            // line 68
+            // line 42
             echo "                        <li>
                             <a href=\"";
-            // line 69
+            // line 43
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
             echo "\">Zaloguj</a>
                             <li>
                                 <a href=\"";
-            // line 71
+            // line 45
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\">Zarejestruj sie</a>
                             </li>
                         </li>
                     ";
         }
-        // line 75
+        // line 49
         echo "                </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -173,14 +153,22 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
     </header>
     <div id =\"myBody\">
         ";
-        // line 122
+        // line 96
         $this->displayBlock('content', $context, $blocks);
-        // line 123
+        // line 97
         echo "    </div>
+    
+    <footer>
+        <div class=\"row\">
+            <div class=\"col-lg-12\">
+                <p>Copyright © Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
 ";
     }
 
-    // line 122
+    // line 96
     public function block_content($context, array $blocks = array())
     {
     }
@@ -197,6 +185,6 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
 
     public function getDebugInfo()
     {
-        return array (  184 => 122,  179 => 123,  177 => 122,  128 => 75,  121 => 71,  116 => 69,  113 => 68,  102 => 60,  90 => 51,  84 => 47,  82 => 46,  54 => 21,  45 => 15,  32 => 4,  29 => 3,);
+        return array (  172 => 96,  159 => 97,  157 => 96,  108 => 49,  101 => 45,  96 => 43,  93 => 42,  85 => 37,  79 => 34,  73 => 31,  67 => 27,  65 => 26,  60 => 24,  54 => 21,  45 => 15,  32 => 4,  29 => 3,);
     }
 }

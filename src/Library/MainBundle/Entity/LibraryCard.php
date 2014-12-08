@@ -29,6 +29,12 @@ class LibraryCard
      * @var \DateTime
      */
     private $date;
+    
+    /**
+     *
+     * @var \DateTime
+     */
+    private $returnDate;
 
     /**
      * Get id
@@ -110,9 +116,39 @@ class LibraryCard
     }
     
     /**
+     * Set returnDate
+     *
+     * @param \DateTime $returnDate
+     * @return LibraryCard
+     */
+    public function setReturnDate($returnDate)
+    {
+        $this->returnDate = $returnDate;
+
+        return $this;
+    }
+
+    /**
+     * Get returnDate
+     *
+     * @return \DateTime 
+     */
+    public function getReturnDate()
+    {
+        return $this->returnDate;
+    }
+    
+    /**
      * Sets current timestamp @ prepersist
      */
     public function setCurrentDate() {
         $this->date = new \DateTime("now");
+    }
+    
+    /**
+     * Sets date, when book has returned
+     */
+    public function bookReturned() {
+        $this->returnDate = new \DateTime("now");
     }
 }

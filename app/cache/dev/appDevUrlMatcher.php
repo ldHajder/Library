@@ -303,6 +303,67 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::notFoundAction',  '_route' => 'not_found',);
         }
 
+        // show_library_card
+        if ($pathinfo === '/libraryCard') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::showAction',  '_route' => 'show_library_card',);
+        }
+
+        // find_books
+        if ($pathinfo === '/find') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\FindBooksController::findAction',  '_route' => 'find_books',);
+        }
+
+        // show_search_result
+        if (0 === strpos($pathinfo, '/searchResult') && preg_match('#^/searchResult/(?P<page>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_search_result')), array (  '_controller' => 'Library\\MainBundle\\Controller\\FindBooksController::showSearchResultAction',));
+        }
+
+        // add_book
+        if ($pathinfo === '/addBook') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::addBookAction',  '_route' => 'add_book',);
+        }
+
+        if (0 === strpos($pathinfo, '/removeBook')) {
+            // show_removal
+            if (0 === strpos($pathinfo, '/removeBooks') && preg_match('#^/removeBooks(?:/(?P<page>[^/]++))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_removal')), array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::showRemovalAction',  'page' => 1,));
+            }
+
+            // remove_book
+            if (preg_match('#^/removeBook/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'remove_book')), array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::removeBookAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/borrow')) {
+            // borrow_book
+            if (0 === strpos($pathinfo, '/borrow/id') && preg_match('#^/borrow/id\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'borrow_book')), array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::borrowAction',));
+            }
+
+            // borrow_confirmed
+            if (0 === strpos($pathinfo, '/borrowed/id') && preg_match('#^/borrowed/id\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'borrow_confirmed')), array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::succesfullAction',));
+            }
+
+        }
+
+        // return_book
+        if (0 === strpos($pathinfo, '/return/id') && preg_match('#^/return/id\\=(?P<cardId>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'return_book')), array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::returnBookAction',));
+        }
+
+        // returned
+        if ($pathinfo === '/bookReturned') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::returnedAction',  '_route' => 'returned',);
+        }
+
+        // add_another
+        if ($pathinfo === '/another') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::anotherAction',  '_route' => 'add_another',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

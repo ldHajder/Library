@@ -1,0 +1,14 @@
+Library\MainBundle\Entity\Book:
+    constraints:
+        - Callback: [ validateFile ]
+    properties:
+        file:
+            - File:
+                maxSize: 4M
+                mimeTypes: [ image/jpeg, image/png, image/gif, image/tiff ]
+                mimeTypesMessage: Wybrano niewlasciwy format zdjecia.
+                maxSizeMessage: Rozmiar pliku nie moze przekraczac 4 MB.
+            - NotBlank:
+                message: Prosze wybrac plik!
+        category:
+            - NotBlank: ~

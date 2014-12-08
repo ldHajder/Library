@@ -18,8 +18,11 @@ class BookFormType extends AbstractType
             ->add('name')
             ->add('year')
             ->add('author')
+            ->add('publishing')
             ->add('description')
+            ->add('category')
             ->add('file', 'file')
+            ->add('submit', 'submit', array('label' => 'Dodaj'))
         ;
     }
     

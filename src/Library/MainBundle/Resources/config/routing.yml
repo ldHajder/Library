@@ -9,3 +9,48 @@ show_books:
 not_found:
     path:   /notfound
     defaults: { _controller: LibraryMainBundle:Book:notFound }
+
+show_library_card:
+    path:   /libraryCard
+    defaults: { _controller: LibraryMainBundle:LibraryCard:show }
+
+find_books:
+    path:   /find
+    defaults: { _controller: LibraryMainBundle:FindBooks:find }
+
+show_search_result:
+    path:   /searchResult/{page}
+    defaults: { _controller: LibraryMainBundle:FindBooks:showSearchResult }
+
+add_book:
+    path:   /addBook
+    defaults: { _controller: LibraryMainBundle:Book:addBook }
+
+show_removal:
+    path:   /removeBooks/{page}
+    defaults: { _controller: LibraryMainBundle:Book:showRemoval, page: 1 }
+
+remove_book:
+    path:   /removeBook/{id}
+    defaults: { _controller: LibraryMainBundle:Book:removeBook }
+
+borrow_book:
+    path:   /borrow/id={id}
+    defaults: { _controller: LibraryMainBundle:LibraryCard:borrow }
+
+borrow_confirmed:
+    path:   /borrowed/id={id}
+    defaults: { _controller: LibraryMainBundle:LibraryCard:succesfull }
+
+return_book:
+    path:   /return/id={cardId}
+    defaults: { _controller: LibraryMainBundle:LibraryCard:returnBook }
+
+returned:
+    path:   /bookReturned
+    defaults: { _controller: LibraryMainBundle:LibraryCard:returned }
+
+# to remove after adding few books
+add_another:
+    path: /another
+    defaults: { _controller: LibraryMainBundle:Book:another }

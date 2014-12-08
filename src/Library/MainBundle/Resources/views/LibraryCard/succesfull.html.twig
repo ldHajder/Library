@@ -1,0 +1,18 @@
+{% extends 'LibraryMainBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1><strong>Wypozyczyles te ksiazke!</strong></h1>
+    <div class="row">
+        <div class="col-md-7">
+            <a href="{{ asset(book.getWebPath) }}">
+                <img class="img-responsive img-hover" src="{{ asset(book.getWebPath) }}" alt="">
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h2>{{ book.name }}</h2>
+            <h3>Autor: {{ book.author }}</h3>
+            <h4>Wydawnictwo {{ book.publishing }}, {{ book.year }}</h4>
+            <p>{{ book.description }}</p>
+        </div>
+    </div>
+{% endblock %}
