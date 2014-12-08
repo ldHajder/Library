@@ -1,0 +1,26 @@
+Library\MainBundle\Entity\LibraryCard:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ setCurrentDate ]
+    manyToOne:
+        user:
+            targetEntity: Library\UserBundle\Entity\User
+            inversedBy: libraryCard
+            joinColumn:
+                name: user_id
+                referencedColumName: id
+        book:
+            targetEntity: Library\MainBundle\Entity\Book
+            joinColumn:
+                name: book_id
+                referencedColumName: id

@@ -2,7 +2,6 @@
 
 namespace Library\MainBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Book
@@ -20,15 +19,48 @@ class Book
     private $name;
 
     /**
-     * @var string
-     */
-    private $author;
-
-    /**
      * @var integer
      */
     private $year;
 
+    /**
+     * @var string
+     */
+    private $path;
+
+    /**
+     * @var string
+     */
+    private $author;
+    
+    /**
+     *
+     * @var string
+     */
+    private $publishing;
+
+    /**
+     * @var string
+     */
+    private $description;
+    
+    /**
+     * Temporary value of path
+     * @var string
+     */
+    private $temp;
+    
+    /**
+     *
+     * @var file
+     */
+    private $file;
+    
+    /**
+     *
+     * @var Category
+     */
+    protected $category;
 
     /**
      * Get id
@@ -64,6 +96,52 @@ class Book
     }
 
     /**
+     * Set year
+     *
+     * @param integer $year
+     * @return Book
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer 
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Book
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
      * Set author
      *
      * @param string $author
@@ -85,27 +163,154 @@ class Book
     {
         return $this->author;
     }
-
+    
     /**
-     * Set year
+     * Set publishing
      *
-     * @param integer $year
+     * @param string $publishing
      * @return Book
      */
-    public function setYear($year)
+    public function setPublishing($publishing)
     {
-        $this->year = $year;
+        $this->publishing = $publishing;
 
         return $this;
     }
 
     /**
-     * Get year
+     * Get publishing
      *
-     * @return integer 
+     * @return string 
      */
-    public function getYear()
+    public function getPublishing()
     {
-        return $this->year;
+        return $this->publishing;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Book
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+        // check if we have an old image path
+        if (isset($this->path)) {
+            // store the old name to delete after the update
+            $this->temp = $this->path;
+            $this->path = null;
+        } else {
+            $this->path = 'initial';
+        }
+    }
+    
+    /**
+     * Gets file.
+     * @return UploadedFile
+     */
+    public function getFile() {
+        return $this->file;
+    }
+    
+    /**
+     * Set category
+     *
+     * @param \Library\MainBundle\Entity\Category $category
+     * @return Book
+     */
+    public function setCategory(\Library\MainBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Library\MainBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    
+    public function getWebPath()
+    {
+        return null === $this->path
+            ? null
+            : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return 'bundles/LibraryMainBundle/uploads';
+    }
+    
+    /**
+     * PrePersist and PreUpdate func
+     * Called before saving the entity
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getFile()) {
+            // GENERACJA LOSOWEJ NAZWY
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->path = $filename.'.'.$this->getFile()->guessExtension();
+        }
+    }
+    
+    /**
+     * PostPersist and PostUpdate func
+     * Called after entity persistence
+     */
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+        $this->getFile()->move($this->getUploadRootDir(), $this->path);
+        
+        if (isset($this->temp)) {
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            $this->temp = null;
+        }
+        $this->file = null;
+    }
+
+    /**
+     * PostRemove func
+     * Called before entity removal
+     */
+    public function removeUpload()
+    {
+        $file = $this->getAbsolutePath();
+        if ($file) {
+            unlink($file);
+        }
     }
 }

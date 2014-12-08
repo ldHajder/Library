@@ -49,7 +49,10 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
             <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
                 <ul class=\"nav navbar-nav navbar-right\">
                     <li>
-                        <a href=\"#\">Lista ksiazek</a>
+                        <a href=\"";
+        // line 21
+        echo $this->env->getExtension('routing')->getPath("show_books");
+        echo "\">Lista ksiazek</a>
                     </li>
                     <li>
                         <a href=\"#\">Wyszukaj</a>
@@ -194,6 +197,6 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
 
     public function getDebugInfo()
     {
-        return array (  181 => 122,  176 => 123,  174 => 122,  125 => 75,  118 => 71,  113 => 69,  110 => 68,  99 => 60,  87 => 51,  81 => 47,  79 => 46,  45 => 15,  32 => 4,  29 => 3,);
+        return array (  184 => 122,  179 => 123,  177 => 122,  128 => 75,  121 => 71,  116 => 69,  113 => 68,  102 => 60,  90 => 51,  84 => 47,  82 => 46,  54 => 21,  45 => 15,  32 => 4,  29 => 3,);
     }
 }

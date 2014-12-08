@@ -1,4 +1,4 @@
-Library\UserBundle\Entity\User:
+Library\MainBundle\Entity\Category:
     type: entity
     table: null
     id:
@@ -11,11 +11,8 @@ Library\UserBundle\Entity\User:
         name:
             type: string
             length: 255
-        surname:
-            type: string
-            length: 255
     lifecycleCallbacks: {  }
     oneToMany:
-        libraryCard:
-            targetEntity: Library\MainBundle\Entity\LibraryCard
-            mappedBy: user
+        books:
+            targetEntity: Library\MainBundle\Entity\Book
+            mappedBy: category

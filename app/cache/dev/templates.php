@@ -105,6 +105,8 @@
   'FOSUserBundle:Resetting:reset.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views/Resetting/reset.html.twig',
   'FOSUserBundle:Resetting:reset_content.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views/Resetting/reset_content.html.twig',
   'FOSUserBundle:Security:login.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\UserBundle/Resources/views/Security/login.html.twig',
+  'LibraryMainBundle:Book:notFound.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/Book/notFound.html.twig',
+  'LibraryMainBundle:Book:showBooks.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/Book/showBooks.html.twig',
   'LibraryMainBundle::layout.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/layout.html.twig',
   'LibraryMainBundle:Main:index.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/Main/index.html.twig',
   'LibraryUserBundle::layout.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\UserBundle/Resources/views/layout.html.twig',

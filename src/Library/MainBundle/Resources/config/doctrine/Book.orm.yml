@@ -11,9 +11,29 @@ Library\MainBundle\Entity\Book:
         name:
             type: string
             length: 255
+        year:
+            type: smallint
+        path:
+            type: string
+            length: 255
         author:
             type: string
             length: 255
-        year:
-            type: smallint
-    lifecycleCallbacks: {  }
+        publishing:
+            type: string
+            length: 255
+        description:
+            type: text
+    lifecycleCallbacks:
+        prePersist: [ preUpload ]
+        preUpdate: [ preUpload ]
+        postPersist: [ upload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]
+    manyToOne:
+        category:
+            targetEntity: Library\MainBundle\Entity\Category
+            inversedBy: books
+            joinColumn:
+                name: category_id
+                referencedColumName: id

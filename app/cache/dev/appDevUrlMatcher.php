@@ -293,6 +293,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Library\\MainBundle\\Controller\\MainController::indexAction',  '_route' => 'homepage',);
         }
 
+        // show_books
+        if (0 === strpos($pathinfo, '/showBooks') && preg_match('#^/showBooks(?:/(?P<page>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_books')), array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::showBooksAction',  'page' => 1,));
+        }
+
+        // not_found
+        if ($pathinfo === '/notfound') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::notFoundAction',  '_route' => 'not_found',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

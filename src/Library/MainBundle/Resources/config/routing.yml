@@ -1,3 +1,11 @@
 homepage:
     path:     /
     defaults: { _controller: LibraryMainBundle:Main:index }
+
+show_books:
+    path:   /showBooks/{page}
+    defaults: { _controller: LibraryMainBundle:Book:showBooks, page: 1 }
+
+not_found:
+    path:   /notfound
+    defaults: { _controller: LibraryMainBundle:Book:notFound }
