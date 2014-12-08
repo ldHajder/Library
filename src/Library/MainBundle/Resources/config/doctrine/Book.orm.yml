@@ -1,0 +1,19 @@
+Library\MainBundle\Entity\Book:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        author:
+            type: string
+            length: 255
+        year:
+            type: smallint
+    lifecycleCallbacks: {  }

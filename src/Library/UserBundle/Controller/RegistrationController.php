@@ -2,12 +2,13 @@
 
 namespace Library\UserBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
-class RegistrationController extends Controller
+class RegistrationController extends BaseController
 {
-    public function indexAction()
-    {
-        return $this->render('LibraryUserBundle:Registration:index.html.twig');
+    public function registerAction() {
+        $response = parent::registerAction();
+        
+        return $response;
     }
 }
