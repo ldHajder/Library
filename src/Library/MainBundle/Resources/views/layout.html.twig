@@ -38,12 +38,14 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="{{ path('admin_panel') }}">Administracja</a>
                     {% else %}
                         <li>
                             <a href="{{ path('fos_user_security_login') }}">Zaloguj</a>
-                            <li>
-                                <a href="{{ path('fos_user_registration_register') }}">Zarejestruj sie</a>
-                            </li>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_registration_register') }}">Zarejestruj sie</a>
                         </li>
                     {% endif %}
                 </ul>

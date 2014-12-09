@@ -359,9 +359,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::returnedAction',  '_route' => 'returned',);
         }
 
-        // add_another
-        if ($pathinfo === '/another') {
-            return array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::anotherAction',  '_route' => 'add_another',);
+        // admin_panel
+        if ($pathinfo === '/adminPanel') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\MainController::adminAction',  '_route' => 'admin_panel',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

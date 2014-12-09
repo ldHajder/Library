@@ -50,7 +50,6 @@ returned:
     path:   /bookReturned
     defaults: { _controller: LibraryMainBundle:LibraryCard:returned }
 
-# to remove after adding few books
-add_another:
-    path: /another
-    defaults: { _controller: LibraryMainBundle:Book:another }
+admin_panel:
+    path:   /adminPanel
+    defaults: { _controller: LibraryMainBundle:Main:admin }

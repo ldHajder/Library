@@ -1,0 +1,10 @@
+{% extends 'LibraryMainBundle::layout.html.twig' %}
+
+{% block content %}
+    <li>
+        <a href="{{ path('add_book') }}">Dodaj ksiazke</a>
+    </li>
+    <li>
+        <a href="{{ path('show_removal') }}">Usun ksiazke</a>
+    </li>
+{% endblock %}

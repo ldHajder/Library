@@ -41,7 +41,7 @@ class BookController extends Controller
             $em->persist($book);
             $em->flush();
             
-            return $this->redirect($this->generateUrl('add_another'));
+            return $this->redirect($this->generateUrl('homepage'));
         }
         return $this->render('LibraryMainBundle:Book:addBook.html.twig', array('form' => $form->createView()));
     }
@@ -79,14 +79,6 @@ class BookController extends Controller
     
     public function notFoundAction() {
         return $this->render('LibraryMainBundle:Book:notFound.html.twig');
-    }
-    
-    /**
-     * TO REMOVE!!!!!
-     * 
-     */
-    public function anotherAction() {
-        return $this->render('LibraryMainBundle:Book:another.html.twig');
     }
     
     private function getBooksCount() {

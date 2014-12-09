@@ -10,4 +10,8 @@ class MainController extends Controller
     {
         return $this->render('LibraryMainBundle:Main:index.html.twig');
     }
+    
+    public function adminAction() {
+        return $this->render('LibraryMainBundle:Main:adminPanel.html.twig');
+    }
 }
