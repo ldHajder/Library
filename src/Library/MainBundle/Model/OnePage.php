@@ -7,7 +7,7 @@ class OnePage {
     /**
      * Maximum number of recipts at one page
      */
-    const MAX_SIZE = 1;
+    const MAX_SIZE = 4;
     /**
      *
      * @var ArrayCollection
