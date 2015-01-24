@@ -39,7 +39,7 @@ class BookAdmin extends Admin {
             ->add('year', 'integer', array('label' => 'Rok wydania'))
             ->add('author', null, array('label' => 'Autor'))
             ->add('publishing', null, array('label' => 'Wydawnictwo'))
-            ->add('description', 'text', array('label' => 'Opis'))
+            ->add('description', 'textarea', array('label' => 'Opis'))
             ->add('category', 'entity', array('class' => 'Library\MainBundle\Entity\Category'))
             ->add('file', 'file', $fileFieldOptions)
         ;

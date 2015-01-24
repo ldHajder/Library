@@ -9,3 +9,9 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [LibraryMainBundle]]
+    library.book_agent:
+        class: Library\MainBundle\Model\BookAgent
+        arguments: [ "@doctrine.orm.entity_manager" ]
+    library.librarycard_agent:
+        class: Library\MainBundle\Model\LibraryCardAgent
+        arguments: [ "@doctrine.orm.entity_manager" ]

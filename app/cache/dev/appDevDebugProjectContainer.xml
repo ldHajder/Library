@@ -3636,7 +3636,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54c3d34aae2ec</argument>
+            <argument>54c41d24b89d4</argument>
           </service>
         </argument>
         <argument type="service">
@@ -3650,7 +3650,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54c3d34aae2ec</argument>
+            <argument>54c41d24b89d4</argument>
           </service>
         </argument>
       </argument>
@@ -3973,7 +3973,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54c3d34aae2ec</argument>
+            <argument>54c41d24b89d4</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -4077,7 +4077,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54c3d34aae2ec</argument>
+            <argument>54c41d24b89d4</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -4926,6 +4926,12 @@
         <argument type="service" id="sonata.admin.event.extension"/>
       </call>
     </service>
+    <service id="library.book_agent" class="Library\MainBundle\Model\BookAgent">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="library.librarycard_agent" class="Library\MainBundle\Model\LibraryCardAgent">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="sonata.core.date.moment_format_converter" class="Sonata\CoreBundle\Date\MomentFormatConverter"/>
     <service id="sonata.core.flashmessage.manager" class="Sonata\CoreBundle\FlashMessage\FlashManager">
       <tag name="sonata.status.renderer"/>
@@ -5692,6 +5698,28 @@
         <argument>Application\Sonata\UserBundle\Entity\User</argument>
         <argument>mapManyToMany</argument>
         <argument type="collection">
+          <argument type="collection">
+            <argument key="fieldName">groups</argument>
+            <argument key="targetEntity">Application\Sonata\UserBundle\Entity\Group</argument>
+            <argument key="cascade" type="collection"/>
+            <argument key="joinTable" type="collection">
+              <argument key="name">fos_user_user_group</argument>
+              <argument key="joinColumns" type="collection">
+                <argument type="collection">
+                  <argument key="name">user_id</argument>
+                  <argument key="referencedColumnName">id</argument>
+                  <argument key="onDelete">CASCADE</argument>
+                </argument>
+              </argument>
+              <argument key="inverseJoinColumns" type="collection">
+                <argument type="collection">
+                  <argument key="name">group_id</argument>
+                  <argument key="referencedColumnName">id</argument>
+                  <argument key="onDelete">CASCADE</argument>
+                </argument>
+              </argument>
+            </argument>
+          </argument>
           <argument type="collection">
             <argument key="fieldName">groups</argument>
             <argument key="targetEntity">Application\Sonata\UserBundle\Entity\Group</argument>
