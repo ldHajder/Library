@@ -20,7 +20,7 @@ class LibraryCardController extends Controller
     public function showAction() {
         $usr= $this->get('security.context')->getToken()->getUser();
         if($usr != null) {
-            $libraryCard = $usr->getLibraryCard();
+            $libraryCard = $this->get('library.librarycard_agent')->getUsersLibraryCard($usr);
             if(count($libraryCard) > 0) {
                 return $this->render('LibraryMainBundle:LibraryCard:show.html.twig', array('card' => $libraryCard));
             } else {
@@ -37,17 +37,8 @@ class LibraryCardController extends Controller
      * @return Response
      */
     public function borrowAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository('LibraryMainBundle:Book')->find($id);
-        
-        $borrowed = new LibraryCard();
-        $borrowed->setBook($book);
-        $usr= $this->get('security.context')->getToken()->getUser();
-        if($usr != null) {
-            $borrowed->setUser($usr);
-            
-            $em->persist($borrowed);
-            $em->flush();
+        if($this->get('library.librarycard_agent')->borrowBook($id,
+                $this->get('security.context')->getToken()->getUser())) {
             return $this->redirect($this->generateUrl('borrow_confirmed', array('id' => $id)));
         } else {
             return $this->render('LibraryUserBundle:Security:notLogged.html.twig');
@@ -71,20 +62,14 @@ class LibraryCardController extends Controller
      */
     public function returnBookAction($cardId) {
         $usr = $this->get('security.context')->getToken()->getUser();
-        if($usr != null) {
-            $em = $this->getDoctrine()->getManager();
-            $libraryCard = $usr->getLibraryCard();
-            foreach($libraryCard as $one) {
-                if($one->getId() == $cardId) {
-                    $one->bookReturned();
-                    $em->flush();
-                    return $this->redirect($this->generateUrl('returned'));
-                }
+        $temp = $this->get('library.librarycard_agent')->returnBook($cardId, $usr);
+        if($temp != null) {
+            if($temp) {
+                return $this->redirect($this->generateUrl('returned'));
             }
-            return $this->render('LibraryMainBundle:LibraryCard:error.html.twig');
-        } else {
             return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
+        return $this->render('LibraryMainBundle:LibraryCard:error.html.twig');
     }
     
     /**

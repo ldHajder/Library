@@ -4,7 +4,6 @@ namespace Library\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Library\MainBundle\Model\OnePage;
 
 /**
  * BookController
@@ -19,20 +18,11 @@ class BookController extends Controller
      * @return Response
      */
     public function showBooksAction($page) {
-        $count = $this->getBooksCount();
-        $maxPage = ceil( $count / OnePage::MAX_SIZE );
-        if($maxPage != 0) {
-            $allBooks = $this->getDoctrine()->getManager()
-                    ->getRepository("LibraryMainBundle:Book")
-                    ->findAll();
-            if($page > 0 && $page <= $maxPage) {
-                $onePage = new OnePage($page, $allBooks, $maxPage);
-                return $this->render('LibraryMainBundle:Book:showBooks.html.twig',
-                    array('page' => $onePage));
-            }
-            else {
-                return new Response('Blad 404.');
-            }
+        $agent = $this->get('library.book_agent');
+        $onePage = $agent->showAllBooks($page);
+        if($onePage != null) {
+            return $this->render('LibraryMainBundle:Book:showBooks.html.twig',
+                array('page' => $onePage));
         } else {
             return $this->redirect($this->generateUrl('not_found'));
         }
@@ -44,15 +34,5 @@ class BookController extends Controller
      */
     public function notFoundAction() {
         return $this->render('LibraryMainBundle:Book:notFound.html.twig');
-    }
-    
-    /**
-     * Returns number of books
-     * @return integer
-     */
-    private function getBooksCount() {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT COUNT(u.id) FROM Library\MainBundle\Entity\Book u');
-        return intval($query->getSingleScalarResult());
     }
 }
