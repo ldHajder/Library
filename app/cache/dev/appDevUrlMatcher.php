@@ -179,6 +179,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Library\\MainBundle\\Controller\\LibraryCardController::returnedAction',  '_route' => 'returned',);
         }
 
+        // not_admin
+        if ($pathinfo === '/notAdmin') {
+            return array (  '_controller' => 'Library\\MainBundle\\Controller\\MainController::notAdminAction',  '_route' => 'not_admin',);
+        }
+
         if (0 === strpos($pathinfo, '/admin')) {
             // sonata_admin_redirect
             if (rtrim($pathinfo, '/') === '/admin') {

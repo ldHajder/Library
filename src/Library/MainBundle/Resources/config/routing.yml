@@ -37,3 +37,7 @@ return_book:
 returned:
     path:   /bookReturned
     defaults: { _controller: LibraryMainBundle:LibraryCard:returned }
+
+not_admin:
+    path:   /notAdmin
+    defaults: { _controller: LibraryMainBundle:Main:notAdmin }

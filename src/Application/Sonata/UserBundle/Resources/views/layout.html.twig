@@ -1,7 +1,8 @@
 {% extends 'LibraryMainBundle::layout.html.twig' %}
 
-{% block content %}
-    {% block fos_user_content %}
-
-    {% endblock %}
+{% block swap_content %}
+    <div>
+        {% block fos_user_content %}
+        {% endblock %}
+    </div>
 {% endblock %}
