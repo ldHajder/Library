@@ -105,7 +105,6 @@
   'FOSUserBundle:Resetting:reset.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views/Resetting/reset.html.twig',
   'FOSUserBundle:Resetting:reset_content.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views/Resetting/reset_content.html.twig',
   'FOSUserBundle:Security:login.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Application\\Sonata\\UserBundle/Resources/views/Security/login.html.twig',
-  'LibraryMainBundle:Book:addBook.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/Book/addBook.html.twig',
   'LibraryMainBundle:Book:notFound.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/Book/notFound.html.twig',
   'LibraryMainBundle:Book:showBooks.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/Book/showBooks.html.twig',
   'LibraryMainBundle:FindBooks:notFound.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/FindBooks/notFound.html.twig',

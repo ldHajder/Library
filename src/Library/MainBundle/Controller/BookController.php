@@ -6,6 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Library\MainBundle\Model\OnePage;
 
+/**
+ * BookController
+ * Controller bound with books actions
+ * @author Piotrek
+ */
 class BookController extends Controller
 {
     /**

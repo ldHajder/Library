@@ -7,6 +7,8 @@ use Symfony\Component\Validator\Context\LegacyExecutionContext;
 
 /**
  * Book
+ * Book entity class
+ * @author Piotrek
  */
 class Book
 {
