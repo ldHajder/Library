@@ -37,4 +37,50 @@ class User extends BaseUser
     {
         return $this->id;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $libraryCard;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->libraryCard = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add libraryCard
+     *
+     * @param \Library\MainBundle\Entity\LibraryCard $libraryCard
+     * @return User
+     */
+    public function addLibraryCard(\Library\MainBundle\Entity\LibraryCard $libraryCard)
+    {
+        $this->libraryCard[] = $libraryCard;
+
+        return $this;
+    }
+
+    /**
+     * Remove libraryCard
+     *
+     * @param \Library\MainBundle\Entity\LibraryCard $libraryCard
+     */
+    public function removeLibraryCard(\Library\MainBundle\Entity\LibraryCard $libraryCard)
+    {
+        $this->libraryCard->removeElement($libraryCard);
+    }
+
+    /**
+     * Get libraryCard
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLibraryCard()
+    {
+        return $this->libraryCard;
+    }
 }

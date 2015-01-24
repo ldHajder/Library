@@ -96,6 +96,10 @@ class Category
         return $this->books;
     }
     
+    /**
+     * 
+     * @return string
+     */
     public function __toString() {
         return $this->name;
     }

@@ -13,13 +13,17 @@ use Sonata\AdminBundle\Form\FormMapper;
  * @author Piotrek
  */
 class BookAdmin extends Admin {
-    // Fields to be shown on create/edit forms
+    
+    /**
+     * Fields to be shown on create/edit forms
+     * @param FormMapper $formMapper
+     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $image = $this->getSubject();
 
         // use $fileFieldOptions so we can add other options to the field
-        $fileFieldOptions = array('required' => false);
+        $fileFieldOptions = array('required' => true);
         if ($image && ($webPath = $image->getWebPath())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
@@ -41,7 +45,10 @@ class BookAdmin extends Admin {
         ;
     }
 
-    // Fields to be shown on filter forms
+    /**
+     * Fields to be shown on filter forms
+     * @param DatagridMapper $datagridMapper
+     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -55,7 +62,10 @@ class BookAdmin extends Admin {
         ;
     }
 
-    // Fields to be shown on lists
+    /**
+     * Fields to be shown on lists
+     * @param ListMapper $listMapper
+     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

@@ -307,6 +307,10 @@ class Book
         return $this->libraryCards;
     }
     
+    /**
+     * Returns web path of image
+     * @return string
+     */
     public function getWebPath()
     {
         return null === $this->path
@@ -314,6 +318,10 @@ class Book
             : $this->getUploadRootDir().'/'.$this->path;
     }
 
+    /**
+     * Returns path of uploads
+     * @return string
+     */
     protected function getUploadRootDir()
     {
         return 'bundles/LibraryMainBundle/uploads';
@@ -362,6 +370,10 @@ class Book
         }
     }
     
+    /**
+     * Returns absolute path of entities' image
+     * @return string
+     */
     private function getAbsolutePath()
     {
         return null === $this->path

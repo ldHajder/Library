@@ -10,6 +10,11 @@ use Library\MainBundle\Model\OnePage;
 
 class FindBooksController extends Controller
 {
+    /**
+     * Renders search form and if any books were found - redirects do another action
+     * @param Request $request
+     * @return Response
+     */
     public function findAction(Request $request) {
         $this->get('session')->getFlashBag()->clear();
         $form = $this->createForm(new SearchFormType());
@@ -26,6 +31,11 @@ class FindBooksController extends Controller
         return $this->render('LibraryMainBundle:FindBooks:search.html.twig', array('form' => $form->createView()));
     }
     
+    /**
+     * Shows view with found books.
+     * @param integer $page
+     * @return Response
+     */
     public function showSearchResultAction($page) {
         $found = $this->get('session')->getFlashBag()->get('search_data');
         if(count($found) > 0) {
@@ -41,10 +51,8 @@ class FindBooksController extends Controller
         }
     }
     
-    
-    
     /**
-     * Searches recipts by criterie
+     * Searches recipts by ONE of criteries
      * 
      * @param Form $data
      * @return array
@@ -77,23 +85,6 @@ class FindBooksController extends Controller
         } else {
             return $this->redirect($this->generateUrl('find_books'));
         }
-        return $this->removeDuplicates($arr);
-    }
-    
-    private function removeDuplicates($arr) {
-        $count = count($arr);
-        for($i = 0; $i < $count; $i++) {
-            for($j = $i + 1; $j < $count; $j++) {
-                if($arr[$i]->getId() == $arr[$j]->getId()) {
-                    unset($arr[$j]);
-                }
-            }
-        }
-        $temp = [];
-        $i = 0;
-        foreach($arr as $elem) {
-            $temp[$i++] = $elem;
-        }
-        return $temp;
+        return $arr;
     }
 }

@@ -32,6 +32,12 @@ class OnePage {
      */
     private $paginator;
     
+    /**
+     * 
+     * @param integer $page
+     * @param array $books
+     * @param integer $maxPage
+     */
     public function __construct($page, $books, $maxPage) {
         $this->pageNum = $page;
         $this->maxPage = $maxPage;
@@ -44,6 +50,10 @@ class OnePage {
         $this->buildPaginator($page);
     }
     
+    /**
+     * Builds paginator for current page
+     * @param integer $page
+     */
     private function buildPaginator($page) {
         if($this->maxPage > 5) {
             if($page < 4) {
@@ -74,18 +84,34 @@ class OnePage {
         }
     }
     
+    /**
+     * Books getter
+     * @return array
+     */
     public function getBooks() {
         return $this->books;
     }
     
+    /**
+     * Max page getter
+     * @return integer
+     */
     public function getMaxPage() {
         return $this->maxPage;
     }
     
+    /**
+     * Paginator getter
+     * @return array
+     */
     public function getPaginator() {
         return $this->paginator;
     }
     
+    /**
+     * Current page number getter
+     * @return integer
+     */
     public function getPageNum() {
         return $this->pageNum;
     }

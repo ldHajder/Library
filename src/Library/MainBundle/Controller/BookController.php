@@ -4,13 +4,15 @@ namespace Library\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-
 use Library\MainBundle\Model\OnePage;
-use Library\MainBundle\Form\Type\BookFormType;
 
 class BookController extends Controller
 {
+    /**
+     * Shows one page of books
+     * @param integer $page
+     * @return Response
+     */
     public function showBooksAction($page) {
         $count = $this->getBooksCount();
         $maxPage = ceil( $count / OnePage::MAX_SIZE );
@@ -31,25 +33,18 @@ class BookController extends Controller
         }
     }
     
-    public function addBookAction(Request $request) {
-        $form = $this->createForm(new BookFormType());
-        $form->handleRequest($request);
-        if($form->isValid()) {
-            $book = $form->getData();
-            
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
-            
-            return $this->redirect($this->generateUrl('homepage'));
-        }
-        return $this->render('LibraryMainBundle:Book:addBook.html.twig', array('form' => $form->createView()));
-    }
-    
+    /**
+     * View generated when properly book is not found
+     * @return Response
+     */
     public function notFoundAction() {
         return $this->render('LibraryMainBundle:Book:notFound.html.twig');
     }
     
+    /**
+     * Returns number of books
+     * @return integer
+     */
     private function getBooksCount() {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery('SELECT COUNT(u.id) FROM Library\MainBundle\Entity\Book u');
