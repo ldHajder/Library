@@ -7,7 +7,15 @@ class __TwigTemplate_99d605ab180a5370004dd9119550c7265914c2e119671da59f21b620738
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("LibraryMainBundle:Book:showBooks.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("LibraryMainBundle:Book:showBooks.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'paginator' => array($this, 'block_paginator'),
@@ -92,6 +100,6 @@ class __TwigTemplate_99d605ab180a5370004dd9119550c7265914c2e119671da59f21b620738
 
     public function getDebugInfo()
     {
-        return array (  77 => 19,  74 => 18,  68 => 17,  60 => 14,  57 => 13,  49 => 10,  46 => 9,  43 => 8,  39 => 7,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  85 => 19,  82 => 18,  76 => 17,  68 => 14,  65 => 13,  57 => 10,  54 => 9,  51 => 8,  47 => 7,  42 => 5,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

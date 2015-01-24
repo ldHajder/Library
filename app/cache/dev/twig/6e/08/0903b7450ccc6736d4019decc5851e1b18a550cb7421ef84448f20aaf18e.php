@@ -17,11 +17,11 @@ class __TwigTemplate_6e080903b7450ccc6736d4019decc5851e1b18a550cb7421ef84448f20a
     {
         // line 1
         echo "[exception] ";
-        echo twig_escape_filter($this->env, (((((isset($context["status_code"]) ? $context["status_code"] : $this->getContext($context, "status_code")) . " | ") . (isset($context["status_text"]) ? $context["status_text"] : $this->getContext($context, "status_text"))) . " | ") . $this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "class", array())), "html", null, true);
+        echo (((((isset($context["status_code"]) ? $context["status_code"] : $this->getContext($context, "status_code")) . " | ") . (isset($context["status_text"]) ? $context["status_text"] : $this->getContext($context, "status_text"))) . " | ") . $this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "class", array()));
         echo "
 [message] ";
         // line 2
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "message", array()), "html", null, true);
+        echo $this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "message", array());
         echo "
 ";
         // line 3
@@ -30,11 +30,11 @@ class __TwigTemplate_6e080903b7450ccc6736d4019decc5851e1b18a550cb7421ef84448f20a
         foreach ($context['_seq'] as $context["i"] => $context["e"]) {
             // line 4
             echo "[";
-            echo twig_escape_filter($this->env, ($context["i"] + 1), "html", null, true);
+            echo ($context["i"] + 1);
             echo "] ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["e"], "class", array()), "html", null, true);
+            echo $this->getAttribute($context["e"], "class", array());
             echo ": ";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["e"], "message", array()), "html", null, true);
+            echo $this->getAttribute($context["e"], "message", array());
             echo "
 ";
             // line 5

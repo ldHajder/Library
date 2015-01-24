@@ -302,7 +302,7 @@ class __TwigTemplate_fd13d397a7d13dd3bd167b9ef61696e13df25e64c707fe5063ae3a255cc
         echo "\" ";
         $this->displayBlock("widget_attributes", $context, $blocks);
         echo " ";
-        if ((!twig_test_empty((isset($context["value"]) ? $context["value"] : $this->getContext($context, "value"))))) {
+        if ( !twig_test_empty((isset($context["value"]) ? $context["value"] : $this->getContext($context, "value")))) {
             echo "value=\"";
             echo twig_escape_filter($this->env, (isset($context["value"]) ? $context["value"] : $this->getContext($context, "value")), "html", null, true);
             echo "\" ";
@@ -394,7 +394,7 @@ class __TwigTemplate_fd13d397a7d13dd3bd167b9ef61696e13df25e64c707fe5063ae3a255cc
     public function block_choice_widget_collapsed($context, array $blocks = array())
     {
         // line 55
-        if (((((isset($context["required"]) ? $context["required"] : $this->getContext($context, "required")) && (null === (isset($context["empty_value"]) ? $context["empty_value"] : $this->getContext($context, "empty_value")))) && (!(isset($context["empty_value_in_choices"]) ? $context["empty_value_in_choices"] : $this->getContext($context, "empty_value_in_choices")))) && (!(isset($context["multiple"]) ? $context["multiple"] : $this->getContext($context, "multiple"))))) {
+        if (((((isset($context["required"]) ? $context["required"] : $this->getContext($context, "required")) && (null === (isset($context["empty_value"]) ? $context["empty_value"] : $this->getContext($context, "empty_value")))) &&  !(isset($context["empty_value_in_choices"]) ? $context["empty_value_in_choices"] : $this->getContext($context, "empty_value_in_choices"))) &&  !(isset($context["multiple"]) ? $context["multiple"] : $this->getContext($context, "multiple")))) {
             // line 56
             $context["required"] = false;
         }
@@ -407,7 +407,7 @@ class __TwigTemplate_fd13d397a7d13dd3bd167b9ef61696e13df25e64c707fe5063ae3a255cc
         echo ">
         ";
         // line 59
-        if ((!(null === (isset($context["empty_value"]) ? $context["empty_value"] : $this->getContext($context, "empty_value"))))) {
+        if ( !(null === (isset($context["empty_value"]) ? $context["empty_value"] : $this->getContext($context, "empty_value")))) {
             // line 60
             echo "<option value=\"\"";
             if (((isset($context["required"]) ? $context["required"] : $this->getContext($context, "required")) && twig_test_empty((isset($context["value"]) ? $context["value"] : $this->getContext($context, "value"))))) {
@@ -424,7 +424,7 @@ class __TwigTemplate_fd13d397a7d13dd3bd167b9ef61696e13df25e64c707fe5063ae3a255cc
             // line 64
             $this->displayBlock("choice_widget_options", $context, $blocks);
             // line 65
-            if (((twig_length_filter($this->env, (isset($context["choices"]) ? $context["choices"] : $this->getContext($context, "choices"))) > 0) && (!(null === (isset($context["separator"]) ? $context["separator"] : $this->getContext($context, "separator")))))) {
+            if (((twig_length_filter($this->env, (isset($context["choices"]) ? $context["choices"] : $this->getContext($context, "choices"))) > 0) &&  !(null === (isset($context["separator"]) ? $context["separator"] : $this->getContext($context, "separator"))))) {
                 // line 66
                 echo "<option disabled=\"disabled\">";
                 echo twig_escape_filter($this->env, (isset($context["separator"]) ? $context["separator"] : $this->getContext($context, "separator")), "html", null, true);
@@ -731,9 +731,9 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
     public function block_form_label($context, array $blocks = array())
     {
         // line 198
-        if ((!((isset($context["label"]) ? $context["label"] : $this->getContext($context, "label")) === false))) {
+        if ( !((isset($context["label"]) ? $context["label"] : $this->getContext($context, "label")) === false)) {
             // line 199
-            if ((!(isset($context["compound"]) ? $context["compound"] : $this->getContext($context, "compound")))) {
+            if ( !(isset($context["compound"]) ? $context["compound"] : $this->getContext($context, "compound"))) {
                 // line 200
                 $context["label_attr"] = twig_array_merge((isset($context["label_attr"]) ? $context["label_attr"] : $this->getContext($context, "label_attr")), array("for" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id"))));
             }
@@ -875,7 +875,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
     public function block_form_end($context, array $blocks = array())
     {
         // line 264
-        if (((!array_key_exists("render_rest", $context)) || (isset($context["render_rest"]) ? $context["render_rest"] : $this->getContext($context, "render_rest")))) {
+        if (( !array_key_exists("render_rest", $context) || (isset($context["render_rest"]) ? $context["render_rest"] : $this->getContext($context, "render_rest")))) {
             // line 265
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         }
@@ -924,7 +924,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
         $context['_seq'] = twig_ensure_traversable((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")));
         foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
             // line 286
-            if ((!$this->getAttribute($context["child"], "rendered", array()))) {
+            if ( !$this->getAttribute($context["child"], "rendered", array())) {
                 // line 287
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["child"], 'row');
             }
@@ -989,7 +989,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
                 echo "=\"";
                 echo twig_escape_filter($this->env, $context["attrname"], "html", null, true);
                 echo "\"";
-            } elseif ((!($context["attrvalue"] === false))) {
+            } elseif ( !($context["attrvalue"] === false)) {
                 // line 312
                 echo twig_escape_filter($this->env, $context["attrname"], "html", null, true);
                 echo "=\"";
@@ -1006,7 +1006,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
     public function block_widget_container_attributes($context, array $blocks = array())
     {
         // line 318
-        if ((!twig_test_empty((isset($context["id"]) ? $context["id"] : $this->getContext($context, "id"))))) {
+        if ( !twig_test_empty((isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))) {
             echo "id=\"";
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "html", null, true);
             echo "\"";
@@ -1030,7 +1030,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
                 echo "=\"";
                 echo twig_escape_filter($this->env, $context["attrname"], "html", null, true);
                 echo "\"";
-            } elseif ((!($context["attrvalue"] === false))) {
+            } elseif ( !($context["attrvalue"] === false)) {
                 // line 326
                 echo twig_escape_filter($this->env, $context["attrname"], "html", null, true);
                 echo "=\"";
@@ -1074,7 +1074,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
                 echo "=\"";
                 echo twig_escape_filter($this->env, $context["attrname"], "html", null, true);
                 echo "\"";
-            } elseif ((!($context["attrvalue"] === false))) {
+            } elseif ( !($context["attrvalue"] === false)) {
                 // line 340
                 echo twig_escape_filter($this->env, $context["attrname"], "html", null, true);
                 echo "=\"";

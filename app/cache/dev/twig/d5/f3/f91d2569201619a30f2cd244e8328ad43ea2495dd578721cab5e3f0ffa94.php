@@ -16,7 +16,7 @@ class __TwigTemplate_d5f3f91d2569201619a30f2cd244e8328ad43ea2495dd578721cab5e3f0
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        if ((!twig_test_empty((isset($context["token"]) ? $context["token"] : $this->getContext($context, "token"))))) {
+        if ( !twig_test_empty((isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")))) {
             // line 2
             echo "    <div class=\"search import clearfix\" id=\"adminBar\">
         <h3>

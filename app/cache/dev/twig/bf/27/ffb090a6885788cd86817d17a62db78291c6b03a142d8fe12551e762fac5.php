@@ -7,7 +7,15 @@ class __TwigTemplate_bf27ffb090a6885788cd86817d17a62db78291c6b03a142d8fe12551e76
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("LibraryMainBundle::layout.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("LibraryMainBundle::layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'content' => array($this, 'block_content'),
@@ -136,7 +144,7 @@ class __TwigTemplate_bf27ffb090a6885788cd86817d17a62db78291c6b03a142d8fe12551e76
     {
         // line 29
         echo "                        ";
-        if ((!twig_test_empty($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array())))) {
+        if ( !twig_test_empty($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()))) {
             // line 30
             echo "                            <a class=\"btn btn-primary\" href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("borrow_book", array("id" => $this->getAttribute((isset($context["book"]) ? $context["book"] : $this->getContext($context, "book")), "id", array()))), "html", null, true);
@@ -219,6 +227,6 @@ class __TwigTemplate_bf27ffb090a6885788cd86817d17a62db78291c6b03a142d8fe12551e76
 
     public function getDebugInfo()
     {
-        return array (  204 => 61,  201 => 60,  195 => 59,  187 => 56,  184 => 55,  176 => 52,  173 => 51,  170 => 50,  166 => 49,  161 => 47,  158 => 46,  155 => 45,  151 => 34,  147 => 32,  141 => 30,  138 => 29,  135 => 28,  126 => 64,  124 => 45,  117 => 40,  99 => 35,  97 => 28,  93 => 27,  87 => 26,  83 => 25,  79 => 24,  72 => 20,  68 => 19,  64 => 17,  47 => 16,  33 => 4,  30 => 3,);
+        return array (  212 => 61,  209 => 60,  203 => 59,  195 => 56,  192 => 55,  184 => 52,  181 => 51,  178 => 50,  174 => 49,  169 => 47,  166 => 46,  163 => 45,  159 => 34,  155 => 32,  149 => 30,  146 => 29,  143 => 28,  134 => 64,  132 => 45,  125 => 40,  107 => 35,  105 => 28,  101 => 27,  95 => 26,  91 => 25,  87 => 24,  80 => 20,  76 => 19,  72 => 17,  55 => 16,  41 => 4,  38 => 3,  11 => 1,);
     }
 }

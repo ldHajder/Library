@@ -20,7 +20,12 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~1.3",
         "egeloen/lucene-search-bundle": "~1.0",
-        "zendframework/zendsearch": "dev-master"
+        "zendframework/zendsearch": "dev-master",
+        "sonata-project/core-bundle": "~2.2@dev",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/user-bundle": "~2.2@dev",
+        "knplabs/knp-menu-bundle": "~1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

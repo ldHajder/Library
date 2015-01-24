@@ -7,7 +7,15 @@ class __TwigTemplate_8111c124c9174c8b40296ae0084c96be1e12bfab54f974543e5f1882e36
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'content' => array($this, 'block_content'),
@@ -107,7 +115,7 @@ class __TwigTemplate_8111c124c9174c8b40296ae0084c96be1e12bfab54f974543e5f1882e36
         echo "
     ";
         // line 38
-        if ((!twig_length_filter($this->env, (isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors"))))) {
+        if ( !twig_length_filter($this->env, (isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors")))) {
             // line 39
             echo "        <ul class=\"symfony_list\">
             <li><a href=\"";
@@ -131,6 +139,6 @@ class __TwigTemplate_8111c124c9174c8b40296ae0084c96be1e12bfab54f974543e5f1882e36
 
     public function getDebugInfo()
     {
-        return array (  115 => 40,  112 => 39,  110 => 38,  107 => 37,  101 => 33,  92 => 31,  88 => 30,  82 => 26,  78 => 24,  74 => 22,  72 => 21,  67 => 18,  65 => 17,  62 => 16,  58 => 14,  49 => 12,  45 => 11,  38 => 7,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  123 => 40,  120 => 39,  118 => 38,  115 => 37,  109 => 33,  100 => 31,  96 => 30,  90 => 26,  86 => 24,  82 => 22,  80 => 21,  75 => 18,  73 => 17,  70 => 16,  66 => 14,  57 => 12,  53 => 11,  46 => 7,  42 => 5,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

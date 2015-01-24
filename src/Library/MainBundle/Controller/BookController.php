@@ -46,37 +46,6 @@ class BookController extends Controller
         return $this->render('LibraryMainBundle:Book:addBook.html.twig', array('form' => $form->createView()));
     }
     
-    public function showRemovalAction($page) {
-        $count = $this->getBooksCount();
-        $maxPage = ceil( $count / OnePage::MAX_SIZE );
-        if($maxPage != 0) {
-            $allBooks = $this->getDoctrine()->getManager()
-                    ->getRepository("LibraryMainBundle:Book")
-                    ->findAll();
-            if($page > 0 && $page <= $maxPage) {
-                $onePage = new OnePage($page, $allBooks, $maxPage);
-                return $this->render('LibraryMainBundle:Book:removeBook.html.twig',
-                    array('page' => $onePage));
-            }
-            else {
-                return new Response('Blad 404.');
-            }
-        } else {
-            return $this->redirect($this->generateUrl('not_found'));
-        }
-    }
-    
-    public function removeBookAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository('LibraryMainBundle:Book')->find($id);
-        $libraryCards = $em->getPartialReference('Library\MainBundle\Entity\LibraryCard', array('book' => $id));
-        $em->remove($libraryCards);
-        $em->remove($book);
-        $em->flush();
-        
-        return $this->render('LibraryMainBundle:Book:bookRemoved.html.twig');
-    }
-    
     public function notFoundAction() {
         return $this->render('LibraryMainBundle:Book:notFound.html.twig');
     }

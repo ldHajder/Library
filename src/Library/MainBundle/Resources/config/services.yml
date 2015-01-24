@@ -1,4 +1,11 @@
 services:
-#    library_main.example:
-#        class: Library\MainBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    sonata.admin.slider:
+        class: Library\MainBundle\Admin\BookAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Biblioteka", label: "Ksiazki" }
+        arguments:
+            - ~
+            - Library\MainBundle\Entity\Book
+            - ~
+        calls:
+            - [ setTranslationDomain, [LibraryMainBundle]]

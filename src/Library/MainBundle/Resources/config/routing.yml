@@ -26,14 +26,6 @@ add_book:
     path:   /addBook
     defaults: { _controller: LibraryMainBundle:Book:addBook }
 
-show_removal:
-    path:   /removeBooks/{page}
-    defaults: { _controller: LibraryMainBundle:Book:showRemoval, page: 1 }
-
-remove_book:
-    path:   /removeBook/{id}
-    defaults: { _controller: LibraryMainBundle:Book:removeBook }
-
 borrow_book:
     path:   /borrow/id={id}
     defaults: { _controller: LibraryMainBundle:LibraryCard:borrow }

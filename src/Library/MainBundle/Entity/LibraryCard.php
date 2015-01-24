@@ -72,10 +72,10 @@ class LibraryCard
     /**
      * Set user
      *
-     * @param \Library\UserBundle\Entity\User $user
+     * @param \Application\Sontata\UserBundle\Entity\User $user
      * @return LibraryCard
      */
-    public function setUser(\Library\UserBundle\Entity\User $user = null)
+    public function setUser(\Application\Sontata\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -85,7 +85,7 @@ class LibraryCard
     /**
      * Get user
      *
-     * @return \Library\UserBundle\Entity\User 
+     * @return \Application\Sontata\UserBundle\Entity\User 
      */
     public function getUser()
     {

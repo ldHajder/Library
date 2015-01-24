@@ -17,7 +17,7 @@ Library\MainBundle\Entity\LibraryCard:
         prePersist: [ setCurrentDate ]
     manyToOne:
         user:
-            targetEntity: Library\UserBundle\Entity\User
+            targetEntity: Application\Sonata\UserBundle\Entity\User
             inversedBy: libraryCard
             joinColumn:
                 name: user_id

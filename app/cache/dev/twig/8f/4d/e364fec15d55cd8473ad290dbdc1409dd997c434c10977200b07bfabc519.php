@@ -7,7 +7,15 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("::base.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
@@ -62,7 +70,7 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
                     </li>
                     ";
         // line 26
-        if ((!twig_test_empty($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array())))) {
+        if ( !twig_test_empty($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()))) {
             // line 27
             echo "                        <li class=\"dropdown\">
                             <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Ustawienia <b class=\"caret\"></b></a>
@@ -87,30 +95,31 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href=\"";
-            // line 42
-            echo $this->env->getExtension('routing')->getPath("admin_panel");
-            echo "\">Administracja</a>
                     ";
         } else {
-            // line 44
+            // line 42
             echo "                        <li>
                             <a href=\"";
-            // line 45
+            // line 43
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
             echo "\">Zaloguj</a>
                         </li>
                         <li>
                             <a href=\"";
-            // line 48
+            // line 46
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\">Zarejestruj sie</a>
                         </li>
                     ";
         }
-        // line 51
-        echo "                </ul>
+        // line 49
+        echo "                    <li>
+                        <a href=\"";
+        // line 50
+        echo $this->env->getExtension('routing')->getPath("sonata_admin_dashboard");
+        echo "\">Administracja</a>
+                    </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -118,13 +127,13 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
     </nav>
                 
     <div class=\"my-image\">
-        <img src=\"http://www.tapetus.pl/obrazki/n/104791_pokoj-biblioteka-szafa-ksiazki-krzesla-stolik.jpg\" />
+        <img src=\"http://i.imgur.com/H8OR44i.jpg\" />
     
     <div id =\"myBody\">
         ";
-        // line 62
-        $this->displayBlock('content', $context, $blocks);
         // line 63
+        $this->displayBlock('content', $context, $blocks);
+        // line 64
         echo "    </div>
     
     <footer>
@@ -137,7 +146,7 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
 ";
     }
 
-    // line 62
+    // line 63
     public function block_content($context, array $blocks = array())
     {
     }
@@ -154,6 +163,6 @@ class __TwigTemplate_8f4de364fec15d55cd8473ad290dbdc1409dd997c434c10977200b07bfa
 
     public function getDebugInfo()
     {
-        return array (  141 => 62,  128 => 63,  126 => 62,  113 => 51,  107 => 48,  101 => 45,  98 => 44,  93 => 42,  85 => 37,  79 => 34,  73 => 31,  67 => 27,  65 => 26,  60 => 24,  54 => 21,  45 => 15,  32 => 4,  29 => 3,);
+        return array (  150 => 63,  137 => 64,  135 => 63,  119 => 50,  116 => 49,  110 => 46,  104 => 43,  101 => 42,  93 => 37,  87 => 34,  81 => 31,  75 => 27,  73 => 26,  68 => 24,  62 => 21,  53 => 15,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

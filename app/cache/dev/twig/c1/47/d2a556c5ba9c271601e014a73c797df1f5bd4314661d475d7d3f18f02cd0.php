@@ -351,7 +351,7 @@ class __TwigTemplate_c147d2a556c5ba9c271601e014a73c797df1f5bd4314661d475d7d3f18f
         echo "
 ";
         // line 329
-        if ((!(isset($context["floatable"]) ? $context["floatable"] : $this->getContext($context, "floatable")))) {
+        if ( !(isset($context["floatable"]) ? $context["floatable"] : $this->getContext($context, "floatable"))) {
             // line 330
             echo "    .sf-toolbarreset {
         position: static;

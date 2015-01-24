@@ -7,7 +7,15 @@ class __TwigTemplate_a376a033305e64d8a8283dd87122c1d8ee99a8f25dd5b4d043a487e8145
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("WebProfilerBundle:Profiler:layout.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("WebProfilerBundle:Profiler:layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'toolbar' => array($this, 'block_toolbar'),
@@ -168,7 +176,7 @@ class __TwigTemplate_a376a033305e64d8a8283dd87122c1d8ee99a8f25dd5b4d043a487e8145
 
         ";
             // line 64
-            if ((!$this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "messages", array(0 => $context["name"]), "method"))) {
+            if ( !$this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "messages", array(0 => $context["name"]), "method")) {
                 // line 65
                 echo "            <p>
                 <em>No message sent.</em>
@@ -289,6 +297,6 @@ class __TwigTemplate_a376a033305e64d8a8283dd87122c1d8ee99a8f25dd5b4d043a487e8145
 
     public function getDebugInfo()
     {
-        return array (  273 => 96,  269 => 94,  254 => 92,  246 => 90,  243 => 88,  240 => 86,  238 => 85,  235 => 83,  230 => 82,  227 => 81,  224 => 79,  221 => 77,  219 => 76,  217 => 75,  208 => 73,  204 => 72,  199 => 71,  182 => 70,  179 => 69,  173 => 65,  171 => 64,  163 => 62,  159 => 61,  154 => 58,  143 => 55,  138 => 54,  135 => 53,  131 => 52,  119 => 42,  116 => 41,  108 => 36,  102 => 32,  99 => 31,  94 => 28,  91 => 27,  87 => 25,  78 => 22,  71 => 18,  67 => 17,  63 => 15,  59 => 14,  54 => 12,  50 => 10,  47 => 9,  42 => 7,  39 => 6,  36 => 5,  33 => 4,  30 => 3,);
+        return array (  281 => 96,  277 => 94,  262 => 92,  254 => 90,  251 => 88,  248 => 86,  246 => 85,  243 => 83,  238 => 82,  235 => 81,  232 => 79,  229 => 77,  227 => 76,  225 => 75,  216 => 73,  212 => 72,  207 => 71,  190 => 70,  187 => 69,  181 => 65,  179 => 64,  171 => 62,  167 => 61,  162 => 58,  151 => 55,  146 => 54,  143 => 53,  139 => 52,  127 => 42,  124 => 41,  116 => 36,  110 => 32,  107 => 31,  102 => 28,  99 => 27,  95 => 25,  86 => 22,  79 => 18,  75 => 17,  71 => 15,  67 => 14,  62 => 12,  58 => 10,  55 => 9,  50 => 7,  47 => 6,  44 => 5,  41 => 4,  38 => 3,  11 => 1,);
     }
 }

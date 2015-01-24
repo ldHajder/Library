@@ -7,7 +7,15 @@ class __TwigTemplate_3c4914fc62f78f9e1435a85605eb66f6f0444dea8faf9289cab6e6d1f43
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("SensioDistributionBundle::Configurator/layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'content_class' => array($this, 'block_content_class'),
@@ -104,6 +112,6 @@ class __TwigTemplate_3c4914fc62f78f9e1435a85605eb66f6f0444dea8faf9289cab6e6d1f43
 
     public function getDebugInfo()
     {
-        return array (  91 => 29,  85 => 26,  82 => 25,  80 => 24,  75 => 22,  70 => 19,  64 => 17,  58 => 15,  56 => 14,  52 => 12,  48 => 10,  44 => 8,  42 => 7,  38 => 5,  35 => 4,  29 => 3,);
+        return array (  99 => 29,  93 => 26,  90 => 25,  88 => 24,  83 => 22,  78 => 19,  72 => 17,  66 => 15,  64 => 14,  60 => 12,  56 => 10,  52 => 8,  50 => 7,  46 => 5,  43 => 4,  37 => 3,  11 => 1,);
     }
 }

@@ -7,7 +7,15 @@ class __TwigTemplate_13f0aadee75a2a75c00019015021d00bde43956da5cfe4afb68b58851b7
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("TwigBundle::layout.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("TwigBundle::layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'head' => array($this, 'block_head'),
@@ -31,7 +39,7 @@ class __TwigTemplate_13f0aadee75a2a75c00019015021d00bde43956da5cfe4afb68b58851b7
     {
         // line 4
         echo "    <link href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/framework/css/exception.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/framework/css/exception.css", null, true, null), "html", null, true);
         echo "\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />
 ";
     }
@@ -70,6 +78,6 @@ class __TwigTemplate_13f0aadee75a2a75c00019015021d00bde43956da5cfe4afb68b58851b7
 
     public function getDebugInfo()
     {
-        return array (  57 => 12,  54 => 11,  43 => 8,  40 => 7,  33 => 4,  30 => 3,);
+        return array (  65 => 12,  62 => 11,  51 => 8,  48 => 7,  41 => 4,  38 => 3,  11 => 1,);
     }
 }

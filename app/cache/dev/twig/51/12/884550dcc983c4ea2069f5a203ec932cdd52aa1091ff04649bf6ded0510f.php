@@ -7,7 +7,15 @@ class __TwigTemplate_5112884550dcc983c4ea2069f5a203ec932cdd52aa1091ff04649bf6ded
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("FOSUserBundle::layout.html.twig");
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("FOSUserBundle::layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
             'fos_user_content' => array($this, 'block_fos_user_content'),
@@ -43,6 +51,6 @@ class __TwigTemplate_5112884550dcc983c4ea2069f5a203ec932cdd52aa1091ff04649bf6ded
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,);
+        return array (  39 => 4,  36 => 3,  11 => 1,);
     }
 }
