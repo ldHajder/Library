@@ -5,6 +5,9 @@ namespace Library\MainBundle\Entity;
 
 /**
  * LibraryCard
+ * Library card entity class
+ * User's borrowed books
+ * @author Piotrek
  */
 class LibraryCard
 {

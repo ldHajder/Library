@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Library\MainBundle\Form\Type\SearchFormType;
 use Library\MainBundle\Model\OnePage;
 
+/**
+ * FindBooksController
+ * Controller bound with books finding actions
+ * @author Lucy
+ */
 class FindBooksController extends Controller
 {
     /**

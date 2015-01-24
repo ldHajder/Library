@@ -4,6 +4,9 @@ namespace Library\MainBundle\Entity;
 
 /**
  * Category
+ * Category entity class
+ * Represents category of books
+ * @author Piotrek
  */
 class Category
 {

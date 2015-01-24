@@ -156,11 +156,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_search_result')), array (  '_controller' => 'Library\\MainBundle\\Controller\\FindBooksController::showSearchResultAction',));
         }
 
-        // add_book
-        if ($pathinfo === '/addBook') {
-            return array (  '_controller' => 'Library\\MainBundle\\Controller\\BookController::addBookAction',  '_route' => 'add_book',);
-        }
-
         if (0 === strpos($pathinfo, '/borrow')) {
             // borrow_book
             if (0 === strpos($pathinfo, '/borrow/id') && preg_match('#^/borrow/id\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
@@ -185,11 +180,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/admin')) {
-            // admin_panel
-            if ($pathinfo === '/adminPanel') {
-                return array (  '_controller' => 'Library\\MainBundle\\Controller\\MainController::adminAction',  '_route' => 'admin_panel',);
-            }
-
             // sonata_admin_redirect
             if (rtrim($pathinfo, '/') === '/admin') {
                 if (substr($pathinfo, -1) !== '/') {
