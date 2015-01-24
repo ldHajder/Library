@@ -19,4 +19,13 @@ class MainController extends Controller
     {
         return $this->render('LibraryMainBundle:Main:index.html.twig');
     }
+    
+    /**
+     * Used when user without permission tries to access admin panel
+     * @return Response
+     */
+    public function notAdminAction() {
+        $this->get('session')->getFlashBag()->add('info', 'Nie masz uprawnien administratora!');
+        return $this->redirect($this->generateUrl('homepage'));
+    }
 }

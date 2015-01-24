@@ -55,13 +55,14 @@
         </div>
         <!-- /.container -->
     </nav>
-                
-    <div class="my-image">
-        <img src="http://i.imgur.com/H8OR44i.jpg" />
-    
-    <div id ="myBody">
-        {% block content %}{% endblock %}
-    </div>
+    {% block swap_content %}
+        <div class="my-image">
+            <img src="http://i.imgur.com/H8OR44i.jpg" />
+
+        <div id ="myBody">
+            {% block content %}{% endblock %}
+        </div>
+    {% endblock %}
     
     <footer>
         <div class="row">
