@@ -5,7 +5,6 @@ namespace Library\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * MainController
  * Renders homepage
  * @author Piotrek
  */

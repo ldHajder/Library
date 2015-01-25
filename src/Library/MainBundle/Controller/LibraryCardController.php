@@ -4,10 +4,7 @@ namespace Library\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Library\MainBundle\Entity\LibraryCard;
-
 /**
- * LibraryCardController
  * Controller bound with library card actions
  * @author Lucy
  */

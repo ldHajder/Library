@@ -6,10 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Library\MainBundle\Form\Type\SearchFormType;
-use Library\MainBundle\Model\OnePage;
 
 /**
- * FindBooksController
  * Controller bound with books finding actions
  * @author Lucy
  */
@@ -25,7 +23,7 @@ class FindBooksController extends Controller
         $form = $this->createForm(new SearchFormType());
         $form->handleRequest($request);
         if($form->isValid()) {
-            $found = $this->searcher($form->getData());
+            $found = $this->get('library.findbook_agent')->searcher($form->getData());
             if(count($found) > 0) {
                 $this->get('session')->getFlashBag()->add('search_data', $found);
                 return $this->redirect($this->generateUrl('show_search_result', array('page' => 1)));
@@ -42,54 +40,11 @@ class FindBooksController extends Controller
      * @return Response
      */
     public function showSearchResultAction($page) {
-        $found = $this->get('session')->getFlashBag()->get('search_data');
-        if(count($found) > 0) {
-            $count = count($found[0]);
-            $maxPage = ceil( $count / OnePage::MAX_SIZE );
-            $onePage = new OnePage($page, $found[0], $maxPage);
-            
-            $this->get('session')->getFlashBag()->add('search_data', $found[0]);
+        $onePage = $this->get('library.findbook_agent')->showFound($this->get('session')->getFlashBag()->get('search_data'), $page);
+        if($onePage != null) {
             return $this->render('LibraryMainBundle:FindBooks:showSearchResult.html.twig',
                     array('page' => $onePage));
-        } else {
-            return $this->redirect($this->generateUrl('search_recipt'));
         }
-    }
-    
-    /**
-     * Searches recipts by ONE of criteries
-     * 
-     * @param Form $data
-     * @return array
-     */
-    private function searcher($data) {
-        $arr = [];
-        $em = $this->getDoctrine()->getManager()->getRepository('LibraryMainBundle:Book');
-        $i = 0;
-        if($data['title'] != null) {
-            $hits = $em->findBy(array('name' => $data['title']));
-            foreach($hits as $hit) {
-                $arr[$i++] = $hit;
-            }
-        } elseif($data['author'] != null) {
-            $hits = $em->findBy(array('author' => $data['author']));
-            foreach($hits as $hit) {
-                $arr[$i++] = $hit;
-            }
-        } elseif($data['publishing'] != null) {
-            $hits = $em->findBy(array('publishing' => $data['publishing']));
-            foreach($hits as $hit) {
-                $arr[$i++] = $hit;
-            }
-        } elseif($data['category'] != null) {
-            $em = $this->getDoctrine()->getManager()->getRepository('LibraryMainBundle:Category');
-            $hits = $em->findOneBy(array('name' => $data['category']->getName()))->getBooks();
-            foreach($hits as $hit) {
-                $arr[$i++] = $hit;
-            }
-        } else {
-            return $this->redirect($this->generateUrl('find_books'));
-        }
-        return $arr;
+        return $this->redirect($this->generateUrl('search_recipt'));
     }
 }

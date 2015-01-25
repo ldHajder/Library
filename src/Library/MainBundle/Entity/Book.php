@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Context\LegacyExecutionContext;
 
 /**
- * Book
  * Book entity class
  * @author Piotrek
  */

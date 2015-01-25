@@ -4,7 +4,6 @@ namespace Library\MainBundle\Entity;
 
 
 /**
- * LibraryCard
  * Library card entity class
  * User's borrowed books
  * @author Piotrek
@@ -75,10 +74,10 @@ class LibraryCard
     /**
      * Set user
      *
-     * @param \Application\Sontata\UserBundle\Entity\User $user
+     * @param \Application\Sonata\UserBundle\Entity\User $user
      * @return LibraryCard
      */
-    public function setUser(\Application\Sontata\UserBundle\Entity\User $user = null)
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -88,7 +87,7 @@ class LibraryCard
     /**
      * Get user
      *
-     * @return \Application\Sontata\UserBundle\Entity\User 
+     * @return \Application\Sonata\UserBundle\Entity\User 
      */
     public function getUser()
     {

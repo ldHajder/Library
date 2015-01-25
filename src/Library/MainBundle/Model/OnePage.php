@@ -3,7 +3,6 @@
 namespace Library\MainBundle\Model;
 
 /**
- * OnePage
  * Tool class. Helps to render one page of books
  * @author Piotrek
  */

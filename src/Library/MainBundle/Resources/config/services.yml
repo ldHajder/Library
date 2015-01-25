@@ -10,8 +10,14 @@ services:
         calls:
             - [ setTranslationDomain, [LibraryMainBundle]]
     library.book_agent:
-        class: Library\MainBundle\Model\BookAgent
+        class: Library\MainBundle\Agent\BookAgent
         arguments: [ "@doctrine.orm.entity_manager" ]
+    
     library.librarycard_agent:
-        class: Library\MainBundle\Model\LibraryCardAgent
+        class: Library\MainBundle\Agent\LibraryCardAgent
         arguments: [ "@doctrine.orm.entity_manager" ]
+    
+    library.findbook_agent:
+        class: Library\MainBundle\Agent\FindBookAgent
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        
