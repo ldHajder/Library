@@ -3,6 +3,7 @@
 namespace Library\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Controller bound with library card actions
@@ -17,7 +18,7 @@ class LibraryCardController extends Controller
     public function showAction() {
         $usr= $this->get('security.context')->getToken()->getUser();
         if($usr != null) {
-            $libraryCard = $this->get('library.librarycard_agent')->getUsersLibraryCard($usr);
+            $libraryCard = $this->get('library.librarycard_agent')->showBorrowed($usr);
             if(count($libraryCard) > 0) {
                 return $this->render('LibraryMainBundle:LibraryCard:show.html.twig', array('card' => $libraryCard));
             } else {

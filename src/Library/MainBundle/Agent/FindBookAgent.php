@@ -12,14 +12,6 @@ use Library\MainBundle\Model\BaseAgent;
 class FindBookAgent extends BaseAgent {
     
     /**
-     * Constructs parents' field
-     * @param \Doctrine\ORM\EntityManager $em
-     */
-    public function __construct(\Doctrine\ORM\EntityManager $em) {
-        parent::__construct($em);
-    }
-    
-    /**
      * Generates one page of found records
      * @param Form $data
      * @param integer $page

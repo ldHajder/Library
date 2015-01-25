@@ -11,14 +11,6 @@ use Library\MainBundle\Model\BaseAgent;
 class BookAgent extends BaseAgent {
     
     /**
-     * Constructs parents' field
-     * @param \Doctrine\ORM\EntityManager $em
-     */
-    public function __construct(\Doctrine\ORM\EntityManager $em) {
-        parent::__construct($em);
-    }
-    
-    /**
      * Generates one page of books
      * @param integer $page
      * @return OnePage

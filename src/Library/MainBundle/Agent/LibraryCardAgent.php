@@ -11,19 +11,11 @@ use Library\MainBundle\Model\BaseAgent;
 class LibraryCardAgent extends BaseAgent {
     
     /**
-     * Constructs parents' field
-     * @param \Doctrine\ORM\EntityManager $em
-     */
-    public function __construct(\Doctrine\ORM\EntityManager $em) {
-        parent::__construct($em);
-    }
-    
-    /**
      * Gets users' library card
      * @param \Application\Sonata\UserBundle\Entity\User $user
      * @return array
      */
-    public function getUsersLibraryCard(\Application\Sonata\UserBundle\Entity\User $user) {
+    public function showBorrowed(\Application\Sonata\UserBundle\Entity\User $user) {
         return $user->getLibraryCard();
     }
     
