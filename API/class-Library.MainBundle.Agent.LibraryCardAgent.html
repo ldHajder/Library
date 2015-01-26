@@ -153,54 +153,14 @@
 
 				<b>Author:</b>
 				Piotr<br />
-		<b>Located at</b> <a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#7-71" title="Go to source code">src/Library/MainBundle/Agent/LibraryCardAgent.php</a><br />
+		<b>Located at</b> <a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#7-63" title="Go to source code">src/Library/MainBundle/Agent/LibraryCardAgent.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#13-19" title="Go to source code">__construct</a>( <span>Doctrine\ORM\EntityManager <var>$em</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Constructs parents' field</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Constructs parents' field</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$em</var></dt>
-					<dd><code>Doctrine\ORM\EntityManager</code><br>$em</dd>
-				</dl></div>
-
-
-
-
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Library.MainBundle.Model.BaseAgent.html#___construct">Library\MainBundle\Model\BaseAgent::__construct()</a></code></div>
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getUsersLibraryCard" id="_getUsersLibraryCard">
+	<tr data-order="showBorrowed" id="_showBorrowed">
 
 		<td class="attributes"><code>
 			 public 
@@ -210,8 +170,8 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getUsersLibraryCard">#</a>
-		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#21-28" title="Go to source code">getUsersLibraryCard</a>( <span><code><a href="class-Application.Sonata.UserBundle.Entity.User.html">Application\Sonata\UserBundle\Entity\User</a></code> <var>$user</var></span> )</code>
+		<a class="anchor" href="#_showBorrowed">#</a>
+		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#13-20" title="Go to source code">showBorrowed</a>( <span><code><a href="class-Application.Sonata.UserBundle.Entity.User.html">Application\Sonata\UserBundle\Entity\User</a></code> <var>$user</var></span> )</code>
 
 		<div class="description short">
 			
@@ -253,7 +213,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_borrowBook">#</a>
-		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#30-49" title="Go to source code">borrowBook</a>( <span>integer <var>$id</var></span>, <span><code><a href="class-Application.Sonata.UserBundle.Entity.User.html">Application\Sonata\UserBundle\Entity\User</a></code> <var>$user</var></span> )</code>
+		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#22-41" title="Go to source code">borrowBook</a>( <span>integer <var>$id</var></span>, <span><code><a href="class-Application.Sonata.UserBundle.Entity.User.html">Application\Sonata\UserBundle\Entity\User</a></code> <var>$user</var></span> )</code>
 
 		<div class="description short">
 			
@@ -293,7 +253,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_returnBook">#</a>
-		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#51-70" title="Go to source code">returnBook</a>( <span>integer <var>$cardId</var></span>, <span><code><a href="class-Application.Sonata.UserBundle.Entity.User.html">Application\Sonata\UserBundle\Entity\User</a></code> <var>$user</var></span> )</code>
+		<code><a href="source-class-Library.MainBundle.Agent.LibraryCardAgent.html#43-62" title="Go to source code">returnBook</a>( <span>integer <var>$cardId</var></span>, <span><code><a href="class-Application.Sonata.UserBundle.Entity.User.html">Application\Sonata\UserBundle\Entity\User</a></code> <var>$user</var></span> )</code>
 
 		<div class="description short">
 			
@@ -328,6 +288,14 @@
 	</tr>
 	</table>
 
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Library.MainBundle.Model.BaseAgent.html#methods">Library\MainBundle\Model\BaseAgent</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Library.MainBundle.Model.BaseAgent.html#___construct">__construct()</a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
