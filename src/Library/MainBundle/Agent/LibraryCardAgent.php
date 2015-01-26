@@ -43,21 +43,10 @@ class LibraryCardAgent extends BaseAgent {
     /**
      * Returns selected book
      * @param integer $cardId
-     * @param \Application\Sonata\UserBundle\Entity\User $user
-     * @return boolean
      */
-    public function returnBook($cardId, $user) {
-        if($user != null) {
-            $libraryCard = $user->getLibraryCard();
-            foreach($libraryCard as $one) {
-                if($one->getId() == $cardId) {
-                    $one->bookReturned();
-                    $this->em->flush();
-                    return true;
-                }
-            }
-            return null;
-        }
-        return false;
+    public function returnBook($cardId) {
+        $card = $this->em->find('LibraryMainBundle:LibraryCard', $cardId);
+        $card->bookReturned();
+        $this->em->flush();
     }
 }

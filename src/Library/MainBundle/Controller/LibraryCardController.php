@@ -60,14 +60,11 @@ class LibraryCardController extends Controller
      */
     public function returnBookAction($cardId) {
         $usr = $this->get('security.context')->getToken()->getUser();
-        $temp = $this->get('library.librarycard_agent')->returnBook($cardId, $usr);
-        if($temp != null) {
-            if($temp) {
-                return $this->redirect($this->generateUrl('returned'));
-            }
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
+        if($usr != null) {
+            $this->get('library.librarycard_agent')->returnBook($cardId);
+            return $this->redirect($this->generateUrl('returned'));
         }
-        return $this->render('LibraryMainBundle:LibraryCard:error.html.twig');
+        return $this->redirect($this->generateUrl('fos_user_security_login'));
     }
     
     /**

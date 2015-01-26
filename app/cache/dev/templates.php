@@ -112,7 +112,6 @@
   'LibraryMainBundle:FindBooks:showSearchResult.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/FindBooks/showSearchResult.html.twig',
   'LibraryMainBundle::layout.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/layout.html.twig',
   'LibraryMainBundle:LibraryCard:empty.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/LibraryCard/empty.html.twig',
-  'LibraryMainBundle:LibraryCard:error.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/LibraryCard/error.html.twig',
   'LibraryMainBundle:LibraryCard:returned.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/LibraryCard/returned.html.twig',
   'LibraryMainBundle:LibraryCard:show.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/LibraryCard/show.html.twig',
   'LibraryMainBundle:LibraryCard:succesfull.html.twig' => 'D:\\XAMPP\\htdocs\\Library\\src\\Library\\MainBundle/Resources/views/LibraryCard/succesfull.html.twig',
